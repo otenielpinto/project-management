@@ -108,7 +108,7 @@ function StatsRightSideBar() {
   function Header() {
     return (
       <h2 className="text-[22px] font-bold text-center mt-7 ">
-        Projects Completed
+        Projetos Concluídos
       </h2>
     );
   }
@@ -141,10 +141,10 @@ function StatsRightSideBar() {
     return (
       <div className="flex justify-center flex-col gap-1 items-center">
         <p className="font-bold text-[17px] ">
-          {completedProjects.length} Completed
+          {completedProjects.length} Concluídos
         </p>
         <p className=" text-[13px] text-slate-400">
-          {completedTasks} Tasks done
+          {completedTasks} Tarefas concluídas
         </p>
       </div>
     );
@@ -255,12 +255,8 @@ function NotAchievedProjectsIcon() {
       viewBox="0 0 488.765 488.766"
       height={"90px"}
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-      <g
-        id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      ></g>
+      <g id="SVGRepo_bgCarrier"></g>
+      <g id="SVGRepo_tracerCarrier"></g>
       <g id="SVGRepo_iconCarrier">
         {" "}
         <g>

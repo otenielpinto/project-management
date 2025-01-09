@@ -13,7 +13,7 @@ function ProjectsSubHeader() {
 
   function MyProjectsText() {
     return (
-      <p className="text-[26px] font-bold max-sm:text-[23px]">My Projects</p>
+      <p className="text-[26px] font-bold max-sm:text-[23px]">Meus Projetos</p>
     );
   }
 

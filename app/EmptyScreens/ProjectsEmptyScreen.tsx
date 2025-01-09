@@ -15,10 +15,10 @@ export function ProjectsEmptyScreen() {
 
       <div className=" flex flex-col items-center gap-2">
         <h3 className="font-semibold opacity-80 text-slate-600 text-[16px]  mb-1 text-center">
-          {`No Projects Created Yet...`}
+          {`Nenhum Projeto Criado Ainda...`}
         </h3>
         <p className="text-slate-400 w-[340px] text-center opacity-80 text-[13px]">
-          {`It looks like you haven't started any projects yet. Create a new project to begin managing your tasks.`}
+          {`Parece que você ainda não começou nenhum projeto. Crie um novo projeto para começar a gerenciar suas tarefas.`}
         </p>
       </div>
     </div>

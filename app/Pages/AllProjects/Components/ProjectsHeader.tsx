@@ -84,7 +84,7 @@ function AddProjectButton() {
         className="bg-orange-600 text-white px-2 text-[14px] rounded-md flex gap-1 items-center p-2 pr-3 max-sm:pr-2"
       >
         <AddIcon sx={{ fontSize: "22px" }} className="mt-[2px]" />
-        <span className="max-sm:hidden">New Project</span>
+        <span className="max-sm:hidden">Novo Projeto</span>
       </button>
       <div className="max-[940px]:block hidden">
         <MenuIcon

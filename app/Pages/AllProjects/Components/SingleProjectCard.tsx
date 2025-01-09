@@ -82,8 +82,8 @@ function SingleProjectCard({ project }: { project: Project }) {
             </span>
             <span className="text-slate-400 text-[13px]">
               {daysLeft === 0
-                ? "Today"
-                : daysLeft + ` day${daysLeft > 1 ? "s" : ""} ago`}
+                ? "Hoje"
+                : daysLeft + ` dia${daysLeft > 1 ? "s" : ""} atrás`}
             </span>
           </div>
           {/* Progress Bar */}
@@ -172,7 +172,7 @@ function SingleProjectCard({ project }: { project: Project }) {
         </div>
 
         <div className="flex justify-between">
-          <p className="text-[13px] text-slate-400">On Progress</p>
+          <p className="text-[13px] text-slate-400">Em Progresso</p>
           <div className="flex gap-1 text-[13px] text-slate-400">
             {/* <ListIcon /> */}
             <p>{progressPercentage}%</p>

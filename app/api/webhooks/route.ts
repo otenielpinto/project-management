@@ -1,6 +1,5 @@
 import { Webhook } from "svix";
 import { headers } from "next/headers";
-import { EmailAddress, WebhookEvent } from "@clerk/nextjs/server";
 
 import User from "../../models/UserSchema";
 import { connect } from "../../lib/connect";
@@ -35,7 +34,7 @@ export async function POST(req: Request) {
   // Create a new Svix instance with your secret.
   const wh = new Webhook(WEBHOOK_SECRET);
 
-  let evt: WebhookEvent;
+  let evt: any;
 
   // Verify the payload with the headers
   try {
@@ -43,7 +42,7 @@ export async function POST(req: Request) {
       "svix-id": svix_id,
       "svix-timestamp": svix_timestamp,
       "svix-signature": svix_signature,
-    }) as WebhookEvent;
+    }) as any;
   } catch (err) {
     console.error("Error verifying webhook:", err);
     return new Response("Error occured", {

@@ -40,7 +40,7 @@ function TasksHeader() {
             ref={inputRef}
             value={taskSearch}
             onChange={(e) => setTaskSearch(e.target.value)}
-            placeholder="Search a Task..."
+            placeholder="Buscar uma Tarefa..."
             className={`p-2 bg-transparent text-[14px] outline-none`}
           />
         </div>
@@ -63,7 +63,7 @@ function TasksHeader() {
           className="bg-orange-600 text-white p-2   justify-center text-[14px] rounded-md flex gap-1 items-center"
         >
           <AddIcon sx={{ fontSize: "22px" }} className="mt-[2px]" />
-          <span className="max-sm:hidden pr-2 ">New Task</span>
+          <span className="max-sm:hidden pr-2 ">Nova Tarefa</span>
         </button>
         <div className="max-[940px]:block hidden">
           <MenuIcon

@@ -3,11 +3,11 @@ import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import BorderAllIcon from "@mui/icons-material/BorderAll";
 import SplitscreenIcon from "@mui/icons-material/Splitscreen";
 import LogoutIcon from "@mui/icons-material/Logout";
+import SendIcon from "@mui/icons-material/Send";
 import { useContextApp } from "../contextApp";
 import { SvgIconProps } from "@mui/material/SvgIcon";
-import { useUser } from "@clerk/nextjs";
+import { useUser } from "@/app/hooks/useUser";
 import Image from "next/image";
-import { useClerk } from "@clerk/nextjs";
 
 function SideBar() {
   const {
@@ -17,7 +17,6 @@ function SideBar() {
   } = useContextApp();
 
   const sideBarMenuRef = useRef<HTMLDivElement>(null);
-  const { signOut } = useClerk();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -66,21 +65,11 @@ function SideBar() {
 
     return (
       <div className="flex   items-center gap-2 ">
-        <Image
-          alt=""
-          className="rounded-md"
-          src={user.imageUrl}
-          width={33}
-          height={33}
-        />
+        {/* <Image alt="" className="rounded-md" src={} width={33} height={33} /> */}
         {openSideBar && (
           <ul>
-            <li className="font-bold text-[14px]">
-              {user.lastName} {user.firstName}
-            </li>
-            <li className="text-slate-400 text-[11px]">
-              {user.primaryEmailAddress?.emailAddress}
-            </li>
+            <li className="font-bold text-[14px]">{user?.name}</li>
+            <li className="text-slate-400 text-[11px]">{user?.email}</li>
           </ul>
         )}
       </div>
@@ -93,6 +82,7 @@ function SideBar() {
       "1": BorderAllIcon,
       "2": SplitscreenIcon,
       "3": LogoutIcon,
+      "4": SendIcon, // Novo ícone adicionado
     };
 
     function handleClickedItem(id: number) {
@@ -114,21 +104,25 @@ function SideBar() {
           }))
         );
       }
+
+      if (id === 4) {
+        // Lógica para enviar para a rota raiz
+      }
     }
 
     useEffect(() => {
       if (sideBarMenu.find((item) => item.isSelected)?.id === 3) {
         console.log("Logging out...");
-        signOut()
-          .then(() => {
-            console.log("Logged out successfully");
-            // You can add additional actions here, like redirecting the user
-          })
-          .catch((error) => {
-            console.error("Error logging out:", error);
-          });
+        // signOut()
+        //   .then(() => {
+        //     console.log("Logged out successfully");
+        //     // You can add additional actions here, like redirecting the user
+        //   })
+        //   .catch((error) => {
+        //     console.error("Error logging out:", error);
+        //   });
       }
-    }, [sideBarMenu, signOut]);
+    }, [sideBarMenu]);
 
     return (
       <div className="flex flex-col gap-6">

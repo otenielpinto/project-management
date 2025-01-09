@@ -7,6 +7,7 @@ import Error from "next/error";
 export async function POST(req: Request) {
   try {
     const { title, icon, clerkUserId, tasks } = await req.json();
+    console.log("Criando projeto:", title);
 
     await connect(); // Connect to the database
 
@@ -43,7 +44,7 @@ export async function GET(req: any) {
     const clerkUserId = req.nextUrl.searchParams.get("clerkUserId"); // Extract the clerkUserId from query params
 
     await connect(); // Connect to the MongoDB database
-    console.log(`Fetching projects for user: ${clerkUserId}`);
+    console.log(`Buscando projetos para o usuário: ${clerkUserId}`);
 
     // Find all projects associated with the given clerkUserId
     const projects = await Project.find({ clerkUserId });
@@ -64,7 +65,7 @@ export async function PUT(request: Request) {
 
     if (!projectId || !projectName) {
       return NextResponse.json(
-        { message: "Project ID and project name are required" },
+        { message: "ID do projeto e nome do projeto são obrigatórios" },
         { status: 400 }
       );
     }
@@ -94,9 +95,9 @@ export async function PUT(request: Request) {
 
     return NextResponse.json({ project: updatedProject });
   } catch (error) {
-    console.error("Error updating project:", error);
+    console.error("Erro ao atualizar o projeto:", error);
     return NextResponse.json(
-      { message: "Failed to update project" },
+      { message: "Falha ao atualizar o projeto" },
       { status: 500 }
     );
   }
@@ -109,7 +110,7 @@ export async function DELETE(request: Request) {
 
     if (!projectId) {
       return NextResponse.json(
-        { message: "Project ID is required" },
+        { message: "ID do projeto é obrigatório" },
         { status: 400 }
       );
     }
@@ -121,16 +122,16 @@ export async function DELETE(request: Request) {
 
     if (!projectToDelete) {
       return NextResponse.json(
-        { message: "Project not found" },
+        { message: "Projeto não encontrado" },
         { status: 404 }
       );
     }
 
-    return NextResponse.json({ message: "Project deleted successfully" });
+    return NextResponse.json({ message: "Projeto deletado com sucesso" });
   } catch (error) {
-    console.error("Error deleting project:", error); // Log the error for debugging
+    console.error("Erro ao deletar o projeto:", error); // Log the error for debugging
     return NextResponse.json(
-      { message: "Failed to delete project" },
+      { message: "Falha ao deletar o projeto" },
       { status: 500 }
     );
   }

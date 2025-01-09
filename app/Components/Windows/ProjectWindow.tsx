@@ -28,7 +28,8 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import { IconData } from "@/app/types/AppType";
 import { allIconsArray } from "@/app/Data/AllIcons";
 import { Project } from "@/app/Data/AllProjects";
-import { useUser } from "@clerk/nextjs";
+import { useUser } from "@/app/hooks/useUser";
+
 import { sortProjects } from "@/app/functions/sortingFunctions";
 
 const schema = z.object({
@@ -96,7 +97,7 @@ export function ProjectWindow() {
       if (isExistingNameInOtherProjects) {
         setError("projectName", {
           type: "manual",
-          message: "Title already used in another project!",
+          message: "Título já utilizado em outro projeto!",
         });
         //Set the focus to the project name input
         setFocus("projectName");
@@ -112,7 +113,7 @@ export function ProjectWindow() {
       if (existingProject) {
         setError("projectName", {
           type: "manual",
-          message: "Project already exists",
+          message: "Projeto já existe",
         });
         //Set the focus to the project name input
         setFocus("projectName");
@@ -152,7 +153,7 @@ export function ProjectWindow() {
         }
       } catch (error) {
         console.log(error);
-        toast.error("Something went wrong");
+        toast.error("Algo deu errado");
       } finally {
         // set the loading as false
         setLoading(false);
@@ -253,7 +254,7 @@ function Header({ handleClose }: { handleClose: () => void }) {
           />
         </div>
         <span className="font-semibold text-lg">
-          {selectedProject ? "Edit Project" : "New Project"}
+          {selectedProject ? "Editar Projeto" : "Novo Projeto"}
         </span>
       </div>
 
@@ -300,13 +301,13 @@ function ProjectInput({
   return (
     <div className="flex flex-col gap-2">
       <span className="text-[14px] font-medium text-slate-600">
-        Project Name
+        Nome do Projeto
       </span>
       <div className="flex gap-3 justify-between">
         <div className="w-full">
           <input
             {...register("projectName")}
-            placeholder="Enter Project Name..."
+            placeholder="Digite o nome do projeto..."
             className="p-[10px] text-[13px] w-full rounded-md border outline-none"
           />
 
@@ -363,10 +364,10 @@ function Footer({
         className="bg-orange-600 hover:bg-orange-700 text-white text-[13px] p-2 px-4 rounded-md transition-all"
       >
         {isLoading
-          ? "Saving..."
+          ? "Salvando..."
           : selectedProject
-          ? "Edit Project"
-          : "Add Project"}
+          ? "Editar Projeto"
+          : "Adicionar Projeto"}
       </button>
     </div>
   );

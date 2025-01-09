@@ -310,13 +310,13 @@ export function TasksWindow() {
     {
       id: 1,
       label: "priority",
-      message: "Please select the priority",
+      message: "Por favor, selecione a prioridade",
       show: false,
     },
     {
       id: 2,
       label: "project",
-      message: "Please select a project",
+      message: "Por favor, selecione um projeto",
       show: false,
     },
   ]);
@@ -499,7 +499,7 @@ function Header() {
           />
         </div>
         <span className="font-semibold text-lg">
-          {selectedTask ? "Edit Task" : "Add New Task"}
+          {selectedTask ? "Editar Tarefa" : "Adicionar Nova Tarefa"}
         </span>
       </div>
 
@@ -530,12 +530,14 @@ function TaskInput({
   } = useContextApp();
   return (
     <div className="flex flex-col gap-2">
-      <span className="text-[14px] font-medium text-slate-600">Task Name</span>
+      <span className="text-[14px] font-medium text-slate-600">
+        Nome da Tarefa
+      </span>
       <div className="flex gap-3 justify-between">
         <div className="w-full">
           <input
             {...register("taskName")}
-            placeholder="Enter Task Name..."
+            placeholder="Digite o nome da tarefa..."
             className="p-[10px] text-[13px] w-full rounded-md border outline-none"
           />
           {errors.taskName && (
@@ -605,7 +607,7 @@ function ProjectsSelection() {
       className="flex flex-col gap-2 w-full relative cursor-pointer"
     >
       {/* Projects span */}
-      <span className="text-[14px] font-medium text-slate-600">Projects</span>
+      <span className="text-[14px] font-medium text-slate-600">Projetos</span>
       {/* selection placeholder and the arrow icon */}
       {/* selection placeholder and the arrow icon */}
       <div className="flex justify-between items-center border h-[42px] px-2 rounded-md">
@@ -617,7 +619,7 @@ function ProjectsSelection() {
               <span className="mt-[3px]">{project.title}</span>
             </div>
           ) : (
-            <span>Select Project</span>
+            <span>Selecione o Projeto</span>
           )}
         </span>
         {/* arrow icon  */}
@@ -680,7 +682,7 @@ function PrioritySelection() {
     >
       {/* Priority span */}
       <span className="text-[14px] font-medium text-slate-600">
-        Task Priority
+        Prioridade da Tarefa
       </span>
       {/* selection placeholder and the arrow icon */}
       <div className="flex justify-between items-center border h-[42px] px-2 rounded-md">
@@ -692,7 +694,7 @@ function PrioritySelection() {
               <span className="mt-[3px]">{priority.name}</span>
             </div>
           ) : (
-            <span>Select Priority</span>
+            <span>Selecione a Prioridade</span>
           )}
         </span>
         {/* arrow icon  */}
@@ -731,14 +733,18 @@ function Footer({ isLoading }: { isLoading: boolean }) {
         className="border border-slate-200 text-slate-400 text-[13px] p-2 px-6 rounded-md
         hover:border-slate-300 transition-all"
       >
-        Cancel
+        Cancelar
       </button>
 
       <button
         type="submit"
         className="bg-orange-600 hover:bg-orange-700 text-white text-[13px] p-2 px-4 rounded-md transition-all"
       >
-        {isLoading ? "Saving..." : selectedTask ? "Edit Task" : "Add Task"}
+        {isLoading
+          ? "Salvando..."
+          : selectedTask
+          ? "Editar Tarefa"
+          : "Adicionar Tarefa"}
       </button>
     </div>
   );

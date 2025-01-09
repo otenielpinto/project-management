@@ -60,7 +60,7 @@ function ConfirmationWindow() {
       // delete the project
     } catch (error) {
       console.log(error);
-      toast.error("Something went wrong");
+      toast.error("Algo deu errado");
     } finally {
       // set the loading as false
       setLoading(false);
@@ -78,13 +78,13 @@ function ConfirmationWindow() {
 
   useEffect(() => {
     if (selectedProject) {
-      setHeader("Project");
-      setMessage(` Are you sure you want to remove this project? This action cannot be
-          undone, and will remove all projects associated with it.`);
+      setHeader("Projeto");
+      setMessage(` Tem certeza de que deseja remover este projeto? Esta ação não pode ser
+          desfeita e removerá todos os projetos associados a ele.`);
     } else if (selectedTask) {
-      setHeader("Task");
-      setMessage(` Are you sure you want to remove this task? This action cannot be
-        undone.`);
+      setHeader("Tarefa");
+      setMessage(` Tem certeza de que deseja remover esta tarefa? Esta ação não pode ser
+        desfeita.`);
     }
   }, [openConfirmationWindow, selectedProject, selectedTask]);
 

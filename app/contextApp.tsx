@@ -6,7 +6,8 @@ import { allIconsArray } from "./Data/AllIcons";
 import { Project, projectsData, Task } from "./Data/AllProjects";
 import CircleIcon from "@mui/icons-material/Circle";
 import { Priority } from "./Components/Windows/TasksWindow";
-import { useUser } from "@clerk/nextjs";
+import { useUser } from "@/app/hooks/useUser";
+
 //Setting the structure of the context
 
 //Setting the default state
@@ -184,8 +185,8 @@ export default function ContextAppProvider({
 
   const [chosenProject, setChosenProject] = useState<Project | null>(null);
   const [tabsOptions, setTabsOptions] = useState<TabOption[]>([
-    { id: 1, name: "On Going Tasks", isSelected: true },
-    { id: 2, name: "Completed Tasks", isSelected: false },
+    { id: 1, name: "Tarefas em Andamento", isSelected: true },
+    { id: 2, name: "Tarefas Concluídas", isSelected: false },
   ]);
 
   const [openProjectsDropDown, setOpenProjectsDropDown] = useState(false);
